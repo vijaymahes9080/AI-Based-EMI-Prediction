@@ -1,0 +1,12 @@
+{
+  "name": "vijaymahes/ai-based-emi-prediction",
+  "description": "Production-ready AI-powered EMI spending, financial health, and future repayment risk predictor application",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Vijay Mahes",
+      "email": "Vijaypradhap2004@gmail.com"
+    }
+  ],
+  "require": {}
+}
