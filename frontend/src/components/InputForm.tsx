@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { User, DollarSign, CreditCard, Building2, HeartPulse, Sparkles, Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { User, DollarSign, CreditCard, Building2, HeartPulse, Sparkles, Zap } from 'lucide-react';
 import { FinancialProfileInput } from '../types/financial';
 
 interface InputFormProps {
@@ -63,19 +63,29 @@ const DEFAULT_FORM: FinancialProfileInput = {
 export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
   const [formData, setFormData] = useState<FinancialProfileInput>(DEFAULT_FORM);
   const [activeSection, setActiveSection] = useState<string>('personal');
+  const [isAutoReactive, setIsAutoReactive] = useState<boolean>(true);
 
-  const handleNestedChange = (category: keyof FinancialProfileInput, field: string, value: any) => {
-    setFormData(prev => ({
-      ...prev,
+  // Real-time Reactive Trigger on all field updates
+  const handleNestedChange = (category: keyof FinancialProfileInput, field: string, rawVal: any) => {
+    const val = typeof rawVal === 'string' && !isNaN(Number(rawVal)) && rawVal !== '' ? Number(rawVal) : rawVal;
+
+    const updated = {
+      ...formData,
       [category]: {
-        ...prev[category],
-        [field]: typeof value === 'string' && !isNaN(Number(value)) && value !== '' ? Number(value) : value
+        ...formData[category],
+        [field]: val
       }
-    }));
+    };
+    setFormData(updated);
+
+    if (isAutoReactive) {
+      onSubmit(updated);
+    }
   };
 
   const handleAutoFill = () => {
     setFormData(DEFAULT_FORM);
+    onSubmit(DEFAULT_FORM);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -93,27 +103,42 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
   ];
 
   return (
-    <div className="glass-card rounded-2xl p-6 relative overflow-hidden border border-slate-800">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 pb-4 border-b border-slate-800">
+    <div className="glass-card rounded-2xl p-6 relative overflow-hidden border border-slate-800 space-y-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-800 gap-3">
         <div>
           <h2 className="text-xl font-extrabold text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-sky-400" />
-            Financial Profile Evaluator
+            <Zap className="w-5 h-5 text-sky-400" />
+            Reactive Financial Profile Evaluator
           </h2>
-          <p className="text-xs text-slate-400 mt-1">Enter your financial credentials to compute ML predictions</p>
+          <p className="text-xs text-slate-400 mt-1">
+            Real-time inference engine - Model recalculates instantly on every field modification
+          </p>
         </div>
-        <button
-          type="button"
-          onClick={handleAutoFill}
-          className="mt-3 sm:mt-0 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/30 hover:bg-sky-500/20 transition-all flex items-center gap-1.5"
-        >
-          <Sparkles className="w-3.5 h-3.5" />
-          Auto-Fill Demo Profile
-        </button>
+        <div className="flex items-center space-x-2">
+          <button
+            type="button"
+            onClick={() => setIsAutoReactive(!isAutoReactive)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
+              isAutoReactive
+                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                : 'bg-slate-800 text-slate-400 border-slate-700'
+            }`}
+          >
+            {isAutoReactive ? '⚡ Auto-Reactive ON' : 'Manual Trigger'}
+          </button>
+          <button
+            type="button"
+            onClick={handleAutoFill}
+            className="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/30 hover:bg-sky-500/20 transition-all flex items-center gap-1.5"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            Auto-Fill Demo Profile
+          </button>
+        </div>
       </div>
 
       {/* Section Selector Tabs */}
-      <div className="flex space-x-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
+      <div className="flex space-x-2 overflow-x-auto pb-2 no-scrollbar">
         {sections.map(s => {
           const Icon = s.icon;
           const isActive = activeSection === s.id;
@@ -140,9 +165,11 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
         {activeSection === 'personal' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div>
-              <label className="text-xs font-semibold text-slate-300 block mb-1.5">Age</label>
+              <label className="text-xs font-semibold text-slate-300 block mb-1.5">Age ({formData.personal.age} yrs)</label>
               <input
                 type="number"
+                min="18"
+                max="100"
                 value={formData.personal.age}
                 onChange={e => handleNestedChange('personal', 'age', e.target.value)}
                 className="w-full bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-sky-500"
@@ -198,6 +225,8 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
               <label className="text-xs font-semibold text-slate-300 block mb-1.5">Number of Dependents</label>
               <input
                 type="number"
+                min="0"
+                max="10"
                 value={formData.personal.number_of_dependents}
                 onChange={e => handleNestedChange('personal', 'number_of_dependents', e.target.value)}
                 className="w-full bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-sky-500"
@@ -515,36 +544,6 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
             </div>
           </div>
         )}
-
-        {/* Submit & Next Controls */}
-        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-          <div className="flex space-x-2">
-            {sections.map((s, idx) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => setActiveSection(s.id)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  activeSection === s.id ? 'bg-sky-400 w-6' : 'bg-slate-700'
-                }`}
-              />
-            ))}
-          </div>
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="px-6 py-2.5 rounded-xl gradient-bg text-white text-xs font-extrabold shadow-lg shadow-sky-500/25 hover:opacity-90 transition-all flex items-center space-x-2 disabled:opacity-50"
-          >
-            {isLoading ? (
-              <span>Evaluating ML Model...</span>
-            ) : (
-              <>
-                <Send className="w-4 h-4" />
-                <span>Compute AI Health & Risk Prediction</span>
-              </>
-            )}
-          </button>
-        </div>
       </form>
     </div>
   );
