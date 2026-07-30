@@ -1,0 +1,20 @@
+name: GitHub AI Agent Automation Bot
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+
+jobs:
+  agent-triage:
+    name: Autonomous Agent Issue & Code Review
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Agent Task Dispatcher
+        run: |
+          echo "GitHub AI Agent activated for FinPulse AI repository."
+          echo "Processing issue event: ${{ github.event.action }}"

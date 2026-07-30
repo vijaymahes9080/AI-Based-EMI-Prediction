@@ -1,0 +1,57 @@
+name: FinPulse AI CI/CD & Automated Verification Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend-test:
+    name: Backend ML & API Test Suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install email-validator pytest
+
+      - name: Train Initial Models
+        run: |
+          cd backend
+          python -m app.ml.trainer
+
+      - name: Run Pytest Suite
+        run: |
+          cd backend
+          pytest tests/
+
+  frontend-build:
+    name: Frontend React Build & Typecheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies & Build
+        run: |
+          cd frontend
+          npm install
+          npm run build
