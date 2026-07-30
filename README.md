@@ -11,6 +11,23 @@ A production-ready, full-stack Machine Learning application built using **FastAP
 
 ---
 
+## 📸 Application Visual Dashboards & Screenshots
+
+### 1. Main Financial Health & EMI Risk Predictor Dashboard
+![Main Financial Health & EMI Risk Predictor Dashboard](docs/assets/dashboard_mockup.svg)
+
+---
+
+### 2. Explainable AI (SHAP Local Feature Attribution Visualizer)
+![Explainable AI SHAP Feature Attribution](docs/assets/explainability_mockup.svg)
+
+---
+
+### 3. Monte Carlo Economic Stress Test & Survival Simulator
+![Monte Carlo Economic Stress Test Simulator](docs/assets/stress_test_mockup.svg)
+
+---
+
 ## 📌 Table of Contents
 - [Key Features](#-key-features)
 - [System Architecture](#-system-architecture)
@@ -61,6 +78,7 @@ d:\current project
 │   ├── requirements.txt  # Python ML dependencies
 │   └── run.py            # Backend Server Launcher
 ├── docs/                 # Postman Collections, OpenAPI & Mermaid Diagrams
+│   └── assets/           # Visual UI Screenshots & SVG Mockups
 ├── scripts/              # Automated Production Health Checks & Utility Scripts
 ├── .agents/              # Workspace AI Agent Rules & Skills Configuration
 ├── .github/workflows/    # Actions CI/CD Pipeline & Agent Bot Automation
