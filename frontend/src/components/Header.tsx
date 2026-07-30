@@ -1,17 +1,28 @@
 import React from 'react';
-import { Activity, ShieldCheck, Cpu, BarChart3, Sliders, Zap, Sparkles } from 'lucide-react';
+import { Activity, ShieldCheck, Cpu, BarChart3, Sliders, Zap, Sparkles, Building2, Award } from 'lucide-react';
+import { CurrencySelector, CurrencyConfig } from './CurrencySelector';
 
 interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
+  currency: CurrencyConfig;
+  onCurrencyChange: (c: CurrencyConfig) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
+export const Header: React.FC<HeaderProps> = ({
+  activeTab,
+  setActiveTab,
+  currency,
+  onCurrencyChange
+}) => {
   const navItems = [
     { id: 'predictor', label: 'EMI & Risk Predictor', icon: Sparkles },
     { id: 'dashboard', label: 'Visual Analytics', icon: BarChart3 },
     { id: 'explainability', label: 'Explainable AI (SHAP)', icon: Cpu },
     { id: 'simulator', label: 'What-If Simulator', icon: Sliders },
+    { id: 'stress', label: 'Stress Tester', icon: Activity },
+    { id: 'optimizer', label: 'Debt Optimizer', icon: Building2 },
+    { id: 'certificate', label: 'Audit Certificate', icon: Award },
     { id: 'metrics', label: 'ML Model Suite', icon: Activity },
   ];
 
@@ -33,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           </div>
 
           {/* Navigation Tabs */}
-          <nav className="hidden md:flex items-center space-x-1 bg-slate-900/60 p-1.5 rounded-xl border border-slate-800">
+          <nav className="hidden lg:flex items-center space-x-1 bg-slate-900/60 p-1.5 rounded-xl border border-slate-800">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -41,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
                     isActive
                       ? 'bg-sky-500 text-white shadow-md shadow-sky-500/25'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
@@ -54,12 +65,9 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             })}
           </nav>
 
-          {/* Status Indicator */}
+          {/* Currency & Status */}
           <div className="flex items-center space-x-3">
-            <div className="hidden lg:flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>FastAPI & XGBoost Active</span>
-            </div>
+            <CurrencySelector currentCurrency={currency} onCurrencyChange={onCurrencyChange} />
             <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300">
               <ShieldCheck className="w-4 h-4 text-sky-400" />
             </div>
@@ -67,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
         </div>
 
         {/* Mobile Nav */}
-        <div className="md:hidden flex space-x-1 overflow-x-auto pb-3 pt-1 no-scrollbar">
+        <div className="lg:hidden flex space-x-1 overflow-x-auto pb-3 pt-1 no-scrollbar">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;

@@ -5,11 +5,16 @@ import { HealthGauge } from './components/HealthGauge';
 import { PredictionCards } from './components/PredictionCards';
 import { ExplainableAI } from './components/ExplainableAI';
 import { WhatIfSimulator } from './components/WhatIfSimulator';
+import { StressTester } from './components/StressTester';
+import { LoanOptimizer } from './components/LoanOptimizer';
+import { ReportGenerator } from './components/ReportGenerator';
+import { VoiceAssistant } from './components/VoiceAssistant';
 import { DashboardCharts } from './components/DashboardCharts';
 import { ModelMetricsView } from './components/ModelMetricsView';
+import { CURRENCIES, CurrencyConfig } from './components/CurrencySelector';
 import { financialApi } from './services/api';
 import { FinancialProfileInput, PredictionResponse, DashboardAnalytics, ModelMetricsSummary } from './types/financial';
-import { Lightbulb, AlertTriangle, CheckCircle, ShieldAlert, Sparkles } from 'lucide-react';
+import { Lightbulb, ShieldAlert, Sparkles } from 'lucide-react';
 
 const DEFAULT_PROFILE: FinancialProfileInput = {
   personal: {
@@ -66,6 +71,7 @@ const DEFAULT_PROFILE: FinancialProfileInput = {
 
 export function App() {
   const [activeTab, setActiveTab] = useState<string>('predictor');
+  const [currency, setCurrency] = useState<CurrencyConfig>(CURRENCIES[0]);
   const [profile, setProfile] = useState<FinancialProfileInput>(DEFAULT_PROFILE);
   const [prediction, setPrediction] = useState<PredictionResponse | null>(null);
   const [analytics, setAnalytics] = useState<DashboardAnalytics | null>(null);
@@ -74,7 +80,6 @@ export function App() {
   const [isRetraining, setIsRetraining] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Initial load
   useEffect(() => {
     fetchInitialData();
   }, []);
@@ -131,7 +136,12 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#0b0f19] flex flex-col font-sans">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Header
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        currency={currency}
+        onCurrencyChange={setCurrency}
+      />
 
       {errorMessage && (
         <div className="max-w-7xl mx-auto px-4 mt-4 w-full">
@@ -191,7 +201,6 @@ export function App() {
                     {prediction.recommendations.map((rec, idx) => {
                       const isHigh = rec.severity === 'High';
                       const isMed = rec.severity === 'Medium';
-                      const isPos = rec.severity === 'Positive';
                       return (
                         <div key={idx} className="bg-slate-900/70 p-4 rounded-xl border border-slate-800 space-y-2 flex flex-col justify-between">
                           <div>
@@ -257,13 +266,37 @@ export function App() {
           </div>
         )}
 
-        {/* TAB 5: MODEL METRICS VIEW */}
+        {/* TAB 5: STRESS TESTER */}
+        {activeTab === 'stress' && (
+          <div className="space-y-6">
+            <StressTester profile={profile} prediction={prediction} />
+          </div>
+        )}
+
+        {/* TAB 6: DEBT OPTIMIZER */}
+        {activeTab === 'optimizer' && (
+          <div className="space-y-6">
+            <LoanOptimizer profile={profile} />
+          </div>
+        )}
+
+        {/* TAB 7: AUDIT CERTIFICATE REPORT */}
+        {activeTab === 'certificate' && (
+          <div className="space-y-6">
+            <ReportGenerator profile={profile} prediction={prediction} />
+          </div>
+        )}
+
+        {/* TAB 8: MODEL METRICS VIEW */}
         {activeTab === 'metrics' && (
           <div className="space-y-6">
             <ModelMetricsView metrics={metrics} onRetrain={handleRetrain} isRetraining={isRetraining} />
           </div>
         )}
       </main>
+
+      {/* Floating AI Voice Assistant Widget */}
+      <VoiceAssistant prediction={prediction} profile={profile} />
 
       <footer className="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
