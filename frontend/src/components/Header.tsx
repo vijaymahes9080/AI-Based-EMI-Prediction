@@ -37,9 +37,6 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div>
               <span className="font-extrabold text-xl tracking-tight gradient-text">FinPulse AI</span>
-              <span className="hidden sm:inline-block ml-2 px-2 py-0.5 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">
-                v1.0 Pro
-              </span>
             </div>
           </div>
 

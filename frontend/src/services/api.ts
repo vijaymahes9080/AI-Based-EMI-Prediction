@@ -41,7 +41,7 @@ export const financialApi = {
         active_regressor: "Gradient Boosting Regressor",
         active_classifier: "Logistic Regression",
         frameworks: ["Scikit-Learn", "XGBoost", "LightGBM", "CatBoost"],
-        pipeline_version: "1.5.0 Pro (GitHub Pages Live)",
+        pipeline_version: "1.5.0 (GitHub Pages Live)",
         cross_validation_folds: 5,
         explainable_ai: "SHAP (SHapley Additive exPlanations) & Feature Contribution Matrix"
       };

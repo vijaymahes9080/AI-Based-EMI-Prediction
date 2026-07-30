@@ -1,6 +1,6 @@
-# FinPulse AI v1.0 Pro: Financial Health, EMI & Repayment Risk Predictor
+# FinPulse AI: Financial Health, EMI & Repayment Risk Predictor
 
-[![Version](https://img.shields.io/badge/Version-v1.0%20Pro-gold.svg?style=for-the-badge&logo=appveyor)](https://github.com/vijaymahes9080/AI-Based-EMI-Prediction/)
+[![Version](https://img.shields.io/badge/Version-v1.0-blue.svg?style=for-the-badge&logo=appveyor)](https://github.com/vijaymahes9080/AI-Based-EMI-Prediction/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/CI%2FCD-Passing-brightgreen)](https://github.com/vijaymahes9080/AI-Based-EMI-Prediction/actions)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blueviolet?style=for-the-badge&logo=github)](https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/)
@@ -11,13 +11,13 @@
 
 🚀 **Live Interactive Demo**: [https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/](https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/)
 
-**FinPulse AI v1.0 Pro** is a production-ready, full-stack Machine Learning application built using **FastAPI**, **React + TypeScript**, **Tailwind CSS**, **Chart.js**, and an ensemble suite of ML algorithms (**XGBoost**, **LightGBM**, **CatBoost**, **Random Forest**, **Scikit-Learn**).
+**FinPulse AI** is a production-ready, full-stack Machine Learning application built using **FastAPI**, **React + TypeScript**, **Tailwind CSS**, **Chart.js**, and an ensemble suite of ML algorithms (**XGBoost**, **LightGBM**, **CatBoost**, **Random Forest**, **Scikit-Learn**).
 
 ---
 
 ## 📸 Application Visual Dashboards & Screenshots
 
-### 1. Main Financial Health & EMI Risk Predictor Dashboard (v1.0 Pro)
+### 1. Main Financial Health & EMI Risk Predictor Dashboard
 ![Main Financial Health & EMI Risk Predictor Dashboard](docs/assets/dashboard_mockup.svg)
 
 ---
@@ -42,7 +42,7 @@
 
 ---
 
-## 🔥 Key Features (v1.0 Pro Edition)
+## 🔥 Key Features
 
 1. **Intelligent EMI & Financial Risk Prediction**:
    - Predicts Monthly EMI Affordability, Max Safe EMI Limit, Net Savings, Debt-to-Income (DTI) Ratio, Loan Approval Probability, and EMI Default Risk.
