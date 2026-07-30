@@ -1,5 +1,6 @@
-# FinPulse AI: Financial Health, EMI & Repayment Risk Predictor
+# FinPulse AI v1.0 Pro: Financial Health, EMI & Repayment Risk Predictor
 
+[![Version](https://img.shields.io/badge/Version-v1.0%20Pro-gold.svg?style=for-the-badge&logo=appveyor)](https://github.com/vijaymahes9080/AI-Based-EMI-Prediction/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/CI%2FCD-Passing-brightgreen)](https://github.com/vijaymahes9080/AI-Based-EMI-Prediction/actions)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blueviolet?style=for-the-badge&logo=github)](https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/)
@@ -8,15 +9,15 @@
 [![React](https://img.shields.io/badge/React-18-cyan)](https://reactjs.org/)
 [![XGBoost](https://img.shields.io/badge/ML-XGBoost%20%7C%20LightGBM%20%7C%20CatBoost-orange)](https://xgboost.readthedocs.io/)
 
-🚀 **Live Interactive Demo**: [https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/](https://vijaymahes9080/AI-Based-EMI-Prediction/)
+🚀 **Live Interactive Demo**: [https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/](https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/)
 
-A production-ready, full-stack Machine Learning application built using **FastAPI**, **React + TypeScript**, **Tailwind CSS**, **Chart.js**, and an ensemble suite of ML algorithms (**XGBoost**, **LightGBM**, **CatBoost**, **Random Forest**, **Scikit-Learn**).
+**FinPulse AI v1.0 Pro** is a production-ready, full-stack Machine Learning application built using **FastAPI**, **React + TypeScript**, **Tailwind CSS**, **Chart.js**, and an ensemble suite of ML algorithms (**XGBoost**, **LightGBM**, **CatBoost**, **Random Forest**, **Scikit-Learn**).
 
 ---
 
 ## 📸 Application Visual Dashboards & Screenshots
 
-### 1. Main Financial Health & EMI Risk Predictor Dashboard
+### 1. Main Financial Health & EMI Risk Predictor Dashboard (v1.0 Pro)
 ![Main Financial Health & EMI Risk Predictor Dashboard](docs/assets/dashboard_mockup.svg)
 
 ---
@@ -41,25 +42,27 @@ A production-ready, full-stack Machine Learning application built using **FastAP
 
 ---
 
-## 🔥 Key Features
+## 🔥 Key Features (v1.0 Pro Edition)
 
 1. **Intelligent EMI & Financial Risk Prediction**:
    - Predicts Monthly EMI Affordability, Max Safe EMI Limit, Net Savings, Debt-to-Income (DTI) Ratio, Loan Approval Probability, and EMI Default Risk.
-2. **AI Voice & Conversational Assistant ("FinBot")**:
+2. **Real-time Model Reactivity**:
+   - Model recalculates predictions, SHAP attributions, and health scores dynamically on every input change.
+3. **AI Voice & Conversational Assistant ("FinBot")**:
    - Web Speech API voice widget allowing natural language queries regarding health scores, safe EMI limits, and risk drivers.
-3. **Monte Carlo Macroeconomic Stress Tester**:
+4. **Monte Carlo Macroeconomic Stress Tester**:
    - Simulates 1,000 future economic scenarios (Job loss, Inflation surge +6%, Interest rate hikes, Medical emergency shocks) and calculates liquid capital survival buffer in months.
-4. **AI Debt Consolidation & Interest Optimization Engine**:
+5. **AI Debt Consolidation & Interest Optimization Engine**:
    - Compares **Debt Snowball** vs. **Debt Avalanche** payoff strategies and calculates single low-rate refinancing savings.
-5. **Multi-Currency & Living Benchmark Switcher**:
+6. **Multi-Currency & Living Benchmark Switcher**:
    - Real-time currency selector supporting **USD ($)**, **INR (₹)**, **EUR (€)**, **GBP (£)**, **CAD (CA$)**, **AUD (A$)**, and **JPY (¥)**.
-6. **Printable AI Financial Audit Report & Certificate**:
+7. **Printable AI Financial Audit Report & Certificate**:
    - One-click official PDF/printable audit certificate complete with digital verification stamp and executive risk verdict.
-7. **Explainable AI (SHAP Integration)**:
+8. **Explainable AI (SHAP Integration)**:
    - Quantifies exact positive and negative feature contributions driving individual predictions.
-8. **Interactive "What-If" Scenario Simulator**:
+9. **Interactive "What-If" Scenario Simulator**:
    - Live sliders to modify housing rent, tenure, or credit score with real-time recalculations.
-9. **Visual Analytics Dashboard**:
+10. **Visual Analytics Dashboard**:
    - Category expense doughnut chart, income vs. debt obligations bar graph, 3/6/12-month spending trends line chart, and credit score risk curves.
 
 ---
