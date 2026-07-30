@@ -1,0 +1,94 @@
+{
+  "info": {
+    "_postman_id": "a8f3b2e1-4c12-4d89-9a22-finpulse001",
+    "name": "FinPulse AI - Financial Health & EMI Risk Predictor API",
+    "description": "Complete REST API collection for AI-powered monthly EMI spending, repayment default risk, SHAP explainability, and visual analytics.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Prediction & Inference",
+      "item": [
+        {
+          "name": "POST /api/v1/predict",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"personal\": {\n    \"age\": 32,\n    \"gender\": \"Male\",\n    \"occupation\": \"Software Engineer\",\n    \"employment_type\": \"Salaried\",\n    \"marital_status\": \"Married\",\n    \"number_of_dependents\": 1\n  },\n  \"income\": {\n    \"monthly_salary\": 85000,\n    \"additional_income\": 8000,\n    \"annual_bonus\": 120000,\n    \"business_income\": 0\n  },\n  \"expenses\": {\n    \"house_rent\": 22000,\n    \"food_expenses\": 12000,\n    \"transportation\": 4500,\n    \"electricity_bill\": 2500,\n    \"internet_bill\": 1200,\n    \"insurance\": 3500,\n    \"education\": 4000,\n    \"medical_expenses\": 2500,\n    \"entertainment\": 4000,\n    \"shopping\": 6500,\n    \"other_expenses\": 3000\n  },\n  \"loans\": {\n    \"loan_type\": \"Home Loan\",\n    \"loan_amount\": 600000,\n    \"interest_rate\": 10.5,\n    \"loan_tenure_months\": 36,\n    \"existing_emi\": 4000,\n    \"credit_card_emi\": 2000,\n    \"personal_loan_emi\": 0,\n    \"home_loan_emi\": 12000,\n    \"vehicle_loan_emi\": 0\n  },\n  \"banking\": {\n    \"credit_score\": 760,\n    \"bank_balance\": 180000,\n    \"savings\": 250000,\n    \"investments\": 350000\n  },\n  \"lifestyle\": {\n    \"smoking\": \"No\",\n    \"alcohol\": \"Occasionally\",\n    \"travel_frequency\": \"Moderate\",\n    \"online_shopping_frequency\": \"High\"\n  }\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/predict",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "8000",
+              "path": ["api", "v1", "predict"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Machine Learning Suite",
+      "item": [
+        {
+          "name": "POST /api/v1/train",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:8000/api/v1/train"
+          }
+        },
+        {
+          "name": "GET /api/v1/metrics",
+          "request": {
+            "method": "GET",
+            "url": "http://127.0.0.1:8000/api/v1/metrics"
+          }
+        },
+        {
+          "name": "GET /api/v1/model-info",
+          "request": {
+            "method": "GET",
+            "url": "http://127.0.0.1:8000/api/v1/model-info"
+          }
+        },
+        {
+          "name": "GET /api/v1/feature-importance",
+          "request": {
+            "method": "GET",
+            "url": "http://127.0.0.1:8000/api/v1/feature-importance"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics & Authentication",
+      "item": [
+        {
+          "name": "GET /api/v1/dashboard",
+          "request": {
+            "method": "GET",
+            "url": "http://127.0.0.1:8000/api/v1/dashboard"
+          }
+        },
+        {
+          "name": "POST /api/v1/auth/register",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"SecurePass123!\",\n  \"full_name\": \"Vijay Mahes\"\n}"
+            },
+            "url": "http://127.0.0.1:8000/api/v1/auth/register"
+          }
+        }
+      ]
+    }
+  ]
+}
