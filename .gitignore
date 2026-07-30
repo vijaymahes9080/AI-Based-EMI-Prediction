@@ -1,18 +1,27 @@
-# Python & venv
+# Python & Virtual Environments
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+.Python
 backend/venv/
+backend/env/
+backend/ENV/
 backend/.pytest_cache/
 backend/financial_app.db
+backend/catboost_info/
 
-# Node.js & Vite
+# Node.js & React Build
 node_modules/
 frontend/node_modules/
 frontend/dist/
+frontend/build/
+.npm
+*.log
 
-# OS & IDE
+# IDEs & System Files
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+*.swp
