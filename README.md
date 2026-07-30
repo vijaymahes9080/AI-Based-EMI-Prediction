@@ -4,20 +4,26 @@ A production-ready, full-stack Machine Learning application built using **FastAP
 
 ---
 
-## Key Features
+## 🔥 Innovative Feature Extensions (v1.5 Pro)
 
 1. **Intelligent EMI & Financial Risk Prediction**:
    - Predicts Monthly EMI Affordability, Max Safe EMI Limit, Net Savings, Debt-to-Income (DTI) Ratio, Loan Approval Probability, and EMI Default Risk.
-2. **Explainable AI (SHAP Integration)**:
+2. **AI Voice & Conversational Assistant ("FinBot")**:
+   - Built-in Web Speech API voice widget allowing natural language queries regarding health scores, safe EMI limits, and risk drivers.
+3. **Monte Carlo Macroeconomic Stress Tester**:
+   - Simulates 1,000 future economic scenarios (Job loss, Inflation surge +6%, Interest rate hikes, Medical emergency shocks) and calculates liquid capital survival buffer in months.
+4. **AI Debt Consolidation & Interest Optimization Engine**:
+   - Compares **Debt Snowball** vs. **Debt Avalanche** payoff strategies and calculates single low-rate refinancing savings.
+5. **Multi-Currency & Living Benchmark Switcher**:
+   - Real-time currency selector supporting **USD ($)**, **INR (₹)**, **EUR (€)**, **GBP (£)**, **CAD (CA$)**, **AUD (A$)**, and **JPY (¥)**.
+6. **Printable AI Financial Audit Report & Certificate**:
+   - One-click official PDF/printable audit certificate complete with digital verification stamp and executive risk verdict.
+7. **Explainable AI (SHAP Integration)**:
    - Quantifies exact positive and negative feature contributions driving individual predictions.
-3. **Interactive "What-If" Scenario Simulator**:
-   - Tweak expenses, loan amounts, tenure, or credit score live to observe real-time health score recalculations.
-4. **Visual Analytics Dashboard**:
-   - Monthly expense category breakdown, income vs. debt obligations, 3/6/12-month future spending trends, and credit risk curves.
-5. **Personalized AI Recommendations**:
-   - Actionable advice across debt management, emergency reserve targeting, credit score optimization, and discretionary expense reduction.
-6. **Automated ML Pipeline**:
-   - 5-Fold Cross Validation across multiple regression and classification algorithms with automatic best-model selection.
+8. **Interactive "What-If" Scenario Simulator**:
+   - Live sliders to modify housing rent, tenure, or credit score with real-time recalculations.
+9. **Visual Analytics Dashboard**:
+   - Category expense doughnut chart, income vs. debt obligations bar graph, 3/6/12-month spending trends line chart, and credit score risk curves.
 
 ---
 
@@ -37,9 +43,11 @@ d:\current project
 │   ├── tests/            # Pytest test suite
 │   ├── requirements.txt  # Python ML dependencies
 │   └── run.py            # Backend Server Launcher
+├── docs/                 # Postman Collections, OpenAPI & Mermaid Diagrams
+├── scripts/              # Automated Production Health Checks & Utility Scripts
 └── frontend/
     ├── src/
-    │   ├── components/   # React Dashboard Components & Visualizers
+    │   ├── components/   # InputForm, HealthGauge, VoiceAssistant, StressTester, LoanOptimizer, ReportGenerator, WhatIfSimulator, DashboardCharts
     │   ├── services/     # Axios API service
     │   ├── types/        # TypeScript Interfaces
     │   ├── App.tsx       # Main Layout Component
@@ -76,11 +84,15 @@ The React frontend dashboard runs at `http://localhost:3000`.
 
 ---
 
-## Running Unit Tests
+## Running Unit Tests & System Health Check
 
 ```bash
+# Pytest Backend Suite
 cd backend
 .\venv\Scripts\pytest tests/
+
+# Production Health Check
+python scripts/health_check.py
 ```
 
 ---
@@ -89,12 +101,16 @@ cd backend
 
 | Model Algorithm | Task | Primary Metric |
 | :--- | :--- | :--- |
-| **XGBoost Regressor** | Financial Health Score | **R² Score: 0.942** (MAE: 1.84) |
-| **CatBoost Classifier** | EMI Default Risk | **ROC-AUC: 0.965** (F1: 0.924) |
-| **LightGBM** | EMI Affordability | Cross-Validated |
-| **Random Forest** | Loan Approval | Cross-Validated |
+| **XGBoost / Gradient Boosting** | Financial Health Score | **R² Score: 0.942** (MAE: 1.84) |
+| **CatBoost / Logistic Regression** | EMI Default Risk | **ROC-AUC: 0.965** (F1: 0.924) |
+| **LightGBM** | EMI Affordability | 5-Fold Cross-Validated |
+| **Random Forest** | Loan Approval | 5-Fold Cross-Validated |
 
 ---
+
+## Author
+**Vijay Mahes** ([Vijaypradhap2004@gmail.com](mailto:Vijaypradhap2004@gmail.com))
+GitHub: [https://github.com/vijaymahes9080/AI-Based-EMI-Prediction](https://github.com/vijaymahes9080/AI-Based-EMI-Prediction)
 
 ## License
 MIT License. Developed for production financial risk assessment & personal budgeting.
