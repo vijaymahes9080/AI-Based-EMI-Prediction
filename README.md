@@ -2,10 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/CI%2FCD-Passing-brightgreen)](https://github.com/vijaymahes9080/AI-Based-EMI-Prediction/actions)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blueviolet?style=for-the-badge&logo=github)](https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/)
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-green)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18-cyan)](https://reactjs.org/)
 [![XGBoost](https://img.shields.io/badge/ML-XGBoost%20%7C%20LightGBM%20%7C%20CatBoost-orange)](https://xgboost.readthedocs.io/)
+
+🚀 **Live Interactive Demo**: [https://vijaymahes9080.github.io/AI-Based-EMI-Prediction/](https://vijaymahes9080/AI-Based-EMI-Prediction/)
 
 A production-ready, full-stack Machine Learning application built using **FastAPI**, **React + TypeScript**, **Tailwind CSS**, **Chart.js**, and an ensemble suite of ML algorithms (**XGBoost**, **LightGBM**, **CatBoost**, **Random Forest**, **Scikit-Learn**).
 
